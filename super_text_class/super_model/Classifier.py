@@ -12,7 +12,7 @@ from keras.preprocessing import text, sequence
 from keras import layers, models, optimizers
 
 
- # load the dataset
+ # load the dataset  
  
 def load_dataset(): 
     data = open('data/corpus').read()
