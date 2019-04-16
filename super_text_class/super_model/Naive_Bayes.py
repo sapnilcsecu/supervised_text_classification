@@ -1,16 +1,16 @@
 '''
 Created on Apr 16, 2019
 
-@author: red5-nasir
+@author: nasir-uddin
 '''
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn import decomposition, ensemble
 
 import pandas, numpy, textblob, string
-from keras.preprocessing import text, sequence
-from keras import layers, models, optimizers
-from .Classifier import load_dataset,train_model
+#from keras.preprocessing import text, sequence
+#from keras import layers, models, optimizers
+from super_model.Classifier import load_dataset,train_model
 
 def main():
     # split the dataset into training and validation datasets 
@@ -60,15 +60,15 @@ def main():
     print ("NB, Count Vectors: ", accuracy)
     
     # Naive Bayes on Word Level TF IDF Vectors
-    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf, train_y, xvalid_tfidf)
+    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf, train_y, xvalid_tfidf,valid_y)
     print ("NB, WordLevel TF-IDF: ", accuracy)
     
     # Naive Bayes on Ngram Level TF IDF Vectors
-    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram, train_y, xvalid_tfidf_ngram)
+    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram, train_y, xvalid_tfidf_ngram,valid_y)
     print ("NB, N-Gram Vectors: ", accuracy)
     
     # Naive Bayes on Character Level TF IDF Vectors
-    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars)
+    accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars,valid_y)
     print ("NB, CharLevel Vectors: ", accuracy)
 
 

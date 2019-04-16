@@ -7,15 +7,16 @@ from sklearn import model_selection, preprocessing, linear_model, naive_bayes, m
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn import decomposition, ensemble
 
-import pandas, xgboost, numpy, textblob, string
-from keras.preprocessing import text, sequence
-from keras import layers, models, optimizers
+#import pandas, xgboost, numpy, textblob, string
+import pandas,numpy, textblob, string
+#from keras.preprocessing import text, sequence
+#from keras import layers, models, optimizers
 
 
  # load the dataset  
  
 def load_dataset(): 
-    data = open('data/corpus').read()
+    data = open('corpus.txt',encoding="utf8").read()
     labels, texts = [], []
     for i, line in enumerate(data.split("\n")):
         content = line.split()
@@ -29,7 +30,7 @@ def load_dataset():
     return trainDF
 # load the dataset
 
-def train_model(classifier, feature_vector_train, label, feature_vector_valid, is_neural_net=False,valid_y):
+def train_model(classifier, feature_vector_train, label, feature_vector_valid,valid_y, is_neural_net=False):
     # fit the training dataset on the classifier
     classifier.fit(feature_vector_train, label)
     
@@ -69,29 +70,6 @@ for word, i in word_index.items():
     if embedding_vector is not None:
         embedding_matrix[i] = embedding_vector
     
-
-
-
-
-
-
-
-# Naive Bayes on Count Vectors
-accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_count, train_y, xvalid_count)
-print ("NB, Count Vectors: ", accuracy)
-
-# Naive Bayes on Word Level TF IDF Vectors
-accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf, train_y, xvalid_tfidf)
-print ("NB, WordLevel TF-IDF: ", accuracy)
-
-# Naive Bayes on Ngram Level TF IDF Vectors
-accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram, train_y, xvalid_tfidf_ngram)
-print ("NB, N-Gram Vectors: ", accuracy)
-
-# Naive Bayes on Character Level TF IDF Vectors
-accuracy = train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars)
-print ("NB, CharLevel Vectors: ", accuracy)
-
 
 
 # Linear Classifier on Count Vectors
