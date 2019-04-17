@@ -14,7 +14,7 @@ class dataset_label_subfolder:
 # load the dataset  
  
     def load_dataset(self): 
-        data = open('corpus.txt',encoding="utf8").read()
+        data = open("../corpus.txt",encoding="utf8").read()
         labels, texts = [], []
         for i, line in enumerate(data.split("\n")):
             content = line.split()

@@ -60,19 +60,19 @@ class Native_Bayes(Classifier):
         
         
         # Naive Bayes on Count Vectors
-        accuracy = Classifier.train_model(naive_bayes.MultinomialNB(), xtrain_count, train_y, xvalid_count,valid_y)
+        accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_count, train_y, xvalid_count,valid_y)
         print ("NB, Count Vectors: ", accuracy)
         
         # Naive Bayes on Word Level TF IDF Vectors
-        accuracy = Classifier.train_model(naive_bayes.MultinomialNB(), xtrain_tfidf, train_y, xvalid_tfidf,valid_y)
+        accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_tfidf, train_y, xvalid_tfidf,valid_y)
         print ("NB, WordLevel TF-IDF: ", accuracy)
         
         # Naive Bayes on Ngram Level TF IDF Vectors
-        accuracy = Classifier.train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram, train_y, xvalid_tfidf_ngram,valid_y)
+        accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram, train_y, xvalid_tfidf_ngram,valid_y)
         print ("NB, N-Gram Vectors: ", accuracy)
         
         # Naive Bayes on Character Level TF IDF Vectors
-        accuracy = Classifier.train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars,valid_y)
+        accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars,valid_y)
         print ("NB, CharLevel Vectors: ", accuracy)
 
 
