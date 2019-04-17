@@ -12,35 +12,21 @@ import pandas,numpy, textblob, string
 #from keras.preprocessing import text, sequence
 #from keras import layers, models, optimizers
 
-
- # load the dataset  
+class Classifier:
  
-def load_dataset(): 
-    data = open('corpus.txt',encoding="utf8").read()
-    labels, texts = [], []
-    for i, line in enumerate(data.split("\n")):
-        content = line.split()
-        labels.append(content[0])
-        texts.append(" ".join(content[1:]))
-    
-    # create a dataframe using texts and lables
-    trainDF = pandas.DataFrame()
-    trainDF['text'] = texts
-    trainDF['label'] = labels
-    return trainDF
 # load the dataset
 
-def train_model(classifier, feature_vector_train, label, feature_vector_valid,valid_y, is_neural_net=False):
-    # fit the training dataset on the classifier
-    classifier.fit(feature_vector_train, label)
-    
-    # predict the labels on validation dataset
-    predictions = classifier.predict(feature_vector_valid)
-    
-    if is_neural_net:
-        predictions = predictions.argmax(axis=-1)
-    
-    return metrics.accuracy_score(predictions, valid_y)
+    def train_model(self,classifier, feature_vector_train, label, feature_vector_valid,valid_y, is_neural_net=False):
+        # fit the training dataset on the classifier
+        classifier.fit(feature_vector_train, label)
+        
+        # predict the labels on validation dataset
+        predictions = classifier.predict(feature_vector_valid)
+        
+        if is_neural_net:
+            predictions = predictions.argmax(axis=-1)
+        
+        return metrics.accuracy_score(predictions, valid_y)
 
 
 """    
