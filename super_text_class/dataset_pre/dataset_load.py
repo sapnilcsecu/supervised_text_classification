@@ -6,7 +6,7 @@ Created on Apr 17, 2019
 import pandas
 
 
-class dataset_label_subfolder:
+class dataset_load:
     '''
     classdocs
     '''

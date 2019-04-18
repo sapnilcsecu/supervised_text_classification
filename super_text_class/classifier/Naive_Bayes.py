@@ -10,14 +10,15 @@ from sklearn import decomposition, ensemble
 import pandas, numpy, textblob, string
 #from keras.preprocessing import text, sequence
 #from keras import layers, models, optimizers
-from load_data.dataset_label_subfolder import dataset_label_subfolder
+from dataset_pre.dataset_load import dataset_load
 from classifier.Classifier import Classifier 
 
 class Native_Bayes(Classifier):
 
     def build_model(self):
         # split the dataset into training and validation datasets 
-        load_data= dataset_label_subfolder();
+        load_data= dataset_load();
+        
         trainDF=load_data.load_dataset()
         train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
         # split the dataset into training and validation datasets 
