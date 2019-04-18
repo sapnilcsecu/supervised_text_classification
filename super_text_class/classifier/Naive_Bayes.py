@@ -6,7 +6,6 @@ Created on Apr 16, 2019
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn import decomposition, ensemble
-
 import pandas, numpy, textblob, string
 #from keras.preprocessing import text, sequence
 #from keras import layers, models, optimizers
@@ -20,6 +19,7 @@ class Native_Bayes(Classifier):
         load_data= dataset_load();
         
         trainDF=load_data.load_dataset()
+        #prepare data set
         train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
         # split the dataset into training and validation datasets 
         
@@ -28,7 +28,9 @@ class Native_Bayes(Classifier):
         train_y = encoder.fit_transform(train_y)
         valid_y = encoder.fit_transform(valid_y)
         # label encode the target variable 
+        #prepare data set
         
+        #feature engineering 
         # word level tf-idf
         tfidf_vect = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=5000)
         tfidf_vect.fit(trainDF['text'])
@@ -58,8 +60,10 @@ class Native_Bayes(Classifier):
         xvalid_count =  count_vect.transform(valid_x)   
         
         # create a count vectorizer object 
+        #feature engineering 
         
         
+        #build train model
         # Naive Bayes on Count Vectors
         accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_count, train_y, xvalid_count,valid_y)
         print ("NB, Count Vectors: ", accuracy)
@@ -75,6 +79,6 @@ class Native_Bayes(Classifier):
         # Naive Bayes on Character Level TF IDF Vectors
         accuracy = Classifier().train_model(naive_bayes.MultinomialNB(), xtrain_tfidf_ngram_chars, train_y, xvalid_tfidf_ngram_chars,valid_y)
         print ("NB, CharLevel Vectors: ", accuracy)
-
+        #build train model
 
 
