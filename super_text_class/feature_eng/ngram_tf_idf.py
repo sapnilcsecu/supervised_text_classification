@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from model.Train_model_input import Train_model_input
 from feature_eng.feature_eng import feature_eng
 from model.test_input import test_input
+from sklearn import model_selection
 
 class ngram_tf_idf:
     '''
@@ -14,7 +15,8 @@ class ngram_tf_idf:
     '''
 
 
-    def convert_feature(self,trainDF,train_x,valid_x,train_y, valid_y):
+    def convert_feature(self,trainDF,train_x):
+        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
         tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=5000)
         tfidf_vect_ngram.fit(trainDF['text'])
         xtrain_tfidf_ngram =  tfidf_vect_ngram.transform(train_x)

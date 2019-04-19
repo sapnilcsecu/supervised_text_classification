@@ -3,7 +3,7 @@ Created on Apr 18, 2019
 
 @author: Nasir-uddin
 '''
-from sklearn.compose.tests import test_target
+
 
 
 class Train_model_input:

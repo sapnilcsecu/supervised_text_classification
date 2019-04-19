@@ -6,15 +6,15 @@ Created on Apr 19, 2019
 from feature_eng.feature_eng import feature_eng
 from sklearn.feature_extraction.text import  CountVectorizer
 from model.Train_model_input import Train_model_input
-
+from sklearn import model_selection
 class count_vectorizer(feature_eng):
     '''
     classdocs
     '''
 
 
-    def convert_feature(self,trainDF,train_x,valid_x,train_y, valid_y):
-         
+    def convert_feature(self,trainDF):
+        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
         count_vect = CountVectorizer(analyzer='word', token_pattern=r'\w{1,}')
         count_vect.fit(trainDF['text'])
         

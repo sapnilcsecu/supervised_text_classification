@@ -4,6 +4,7 @@ Created on Apr 18, 2019
 @author: Nasir uddin
 '''
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn import model_selection
 from model.Train_model_input import Train_model_input
 from feature_eng.feature_eng import feature_eng
 from model.test_input import test_input
@@ -11,7 +12,9 @@ from model.test_input import test_input
 class word_tf_idf(feature_eng):
     
      # word level tf-idf
-    def convert_feature(self,trainDF,train_x,valid_x,train_y, valid_y):
+    def convert_feature(self,trainDF):
+         # split the dataset into training and validation datasets 
+        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
         tfidf_vect = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=5000)
         tfidf_vect.fit(trainDF['text'])
         xtrain_tfidf = tfidf_vect.transform(train_x)
