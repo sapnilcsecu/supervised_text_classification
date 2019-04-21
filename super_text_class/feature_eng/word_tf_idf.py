@@ -20,7 +20,7 @@ class word_tf_idf(feature_eng):
         xtrain_tfidf = tfidf_vect.transform(train_x)
         xvalid_tfidf = tfidf_vect.transform(valid_x)
         test_input_ob=super().test_input_encode(train_y, valid_y)
-        return Train_model_input( xtrain_tfidf, xvalid_tfidf,test_input_ob.get_train_y(), test_input_ob.get_valid_y())
+        return Train_model_input( xtrain_tfidf, xvalid_tfidf,test_input_ob.get_train_y(), test_input_ob.get_valid_y(),tfidf_vect)
  
     # ngram level tf-idf 
     """

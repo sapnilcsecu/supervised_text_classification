@@ -16,8 +16,10 @@ class Classifier:
  
 # load the dataset
 
-    def train_model(self,classifier, feature_vector_train, label, feature_vector_valid,valid_y, is_neural_net=False):
+    def train_model(self,classifier, feature_vector_train, label, feature_vector_valid,valid_y,gettfidf_vect, is_neural_net=False):
         # fit the training dataset on the classifier
+        
+        
         classifier.fit(feature_vector_train, label)
         
         # predict the labels on validation dataset
@@ -25,7 +27,11 @@ class Classifier:
         
         if is_neural_net:
             predictions = predictions.argmax(axis=-1)
+            
+            
+       
         
+        print(classifier.predict(gettfidf_vect.transform(["A FIVE STAR BOOK"])))
         return metrics.accuracy_score(predictions, valid_y)
 
 

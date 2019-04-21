@@ -11,12 +11,15 @@ class Train_model_input:
     classdocs
     '''
 
-    def __init__(self, train_input, train_target, test_input, test_target):
+    def __init__(self, train_input, train_target, test_input, test_target,tfidf_vect):
         self.train_input = train_input
         self.train_target = train_target
         self.test_input = test_input
         self.test_target = test_target
+        self.tfidf_vect=tfidf_vect;
         
+    def gettfidf_vect(self):
+        return self.tfidf_vect
     def get_train_input(self):
         return self.train_input
 
