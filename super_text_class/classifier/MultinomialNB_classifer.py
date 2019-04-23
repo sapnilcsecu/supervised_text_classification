@@ -41,6 +41,9 @@ def main():
     tfidf_transformer = TfidfTransformer()
     X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
     clf = MultinomialNB().fit(X_train_tfidf, y_train)
+    with open('vocabulary_file', 'wb') as vocabulary_file:  
+        pickle.dump(count_vect,vocabulary_file)
+    
     with open('text_classifier', 'wb') as picklefile:  
         pickle.dump(clf,picklefile)
    # print(clf.predict(count_vect.transform(["This company refuses to provide me verification and validation of debt per my right under the FDCPA. I do not believe this debt is mine."])))
