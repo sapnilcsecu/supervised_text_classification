@@ -14,6 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 import nltk.classify.util as util
+import pickle 
 ##load the library
 
 def main():
@@ -40,13 +41,16 @@ def main():
     tfidf_transformer = TfidfTransformer()
     X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
     clf = MultinomialNB().fit(X_train_tfidf, y_train)
-
+    with open('text_classifier', 'wb') as picklefile:  
+        pickle.dump(clf,picklefile)
    # print(clf.predict(count_vect.transform(["This company refuses to provide me verification and validation of debt per my right under the FDCPA. I do not believe this debt is mine."])))
-    print(clf.predict(count_vect.transform(["i want to open bank account"])))
+   # print(clf.predict(count_vect.transform(["i have lost my debit card"])))
     
     #print(clf.predict(count_vect.transform(["I am disputing the inaccurate information the Chex-Systems has on my credit report. I initially submitted a police report on XXXX/XXXX/16 and Chex Systems only deleted the items that I mentioned in the letter and not all the items that were actually listed on the police report. In other words they wanted me to say word for word to them what items were fraudulent. The total disregard of the police report and what accounts that it states that are fraudulent. If they just had paid a little closer attention to the police report I would not been in this position now and they would n't have to research once again. I would like the reported information to be removed : XXXX XXXX XXXX"])))
     
-
+    #Saving and Loading the Model
+   
+#Saving and Loading the Model
    
 
 
