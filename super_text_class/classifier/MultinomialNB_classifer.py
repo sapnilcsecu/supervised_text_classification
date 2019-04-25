@@ -6,6 +6,7 @@ Created on Apr 10, 2019
 ##load the library
 import pandas as pd
 from io import StringIO
+from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import chi2
 import numpy as np
@@ -18,11 +19,14 @@ import pickle
 ##load the library
 
 def main():
+    
+
     #load the dataset
     df = pd.read_csv('Consumer_Complaints.csv')
     df.head()
     #load the dataset
     #add the input column and output column and clean up data
+    documents = []
     col = ['Product', 'Consumer complaint narrative']
     df = df[col]
     df = df[pd.notnull(df['Consumer complaint narrative'])]
@@ -31,6 +35,7 @@ def main():
     category_id_df = df[['Product', 'category_id']].drop_duplicates().sort_values('category_id')
     category_to_id = dict(category_id_df.values)
     id_to_category = dict(category_id_df[['category_id', 'Product']].values)
+    stemmer = WordNetLemmatizer()
     df.head()
     #add the input column and output column and clean up data
     
@@ -41,6 +46,9 @@ def main():
     tfidf_transformer = TfidfTransformer()
     X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
     clf = MultinomialNB().fit(X_train_tfidf, y_train)
+    
+ 
+    
     with open('vocabulary_file', 'wb') as vocabulary_file:  
         pickle.dump(count_vect,vocabulary_file)
     
