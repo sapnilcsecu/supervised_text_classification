@@ -7,9 +7,6 @@ Created on Apr 23, 2019
 import numpy as np  
 import re  
 from sklearn.feature_extraction.text import CountVectorizer
-
-
-
 import pickle  
 from nltk.corpus import stopwords  
 import pickle 
