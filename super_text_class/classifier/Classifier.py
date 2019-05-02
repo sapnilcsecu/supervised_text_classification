@@ -3,9 +3,10 @@ Created on Apr 15, 2019
 
 @author: nasir uddin
 '''
-from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm
+from sklearn import model_selection, preprocessing, linear_model, naive_bayes, svm
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn import decomposition, ensemble
+from sklearn.metrics import accuracy_score
 
 #import pandas, xgboost, numpy, textblob, string
 import pandas,numpy, textblob, string
@@ -16,14 +17,14 @@ class Classifier:
  
 # load the dataset
 
-    def train_model(self,classifier, feature_vector_train, label, feature_vector_valid,valid_y,gettfidf_vect, is_neural_net=False):
+    def train_model(self,classifier, train_input,test_input, train_target, test_target, is_neural_net=False):
         # fit the training dataset on the classifier
         
         
-        classifier.fit(feature_vector_train, label)
+        classifier.fit(train_input, train_target)
         
         # predict the labels on validation dataset
-        predictions = classifier.predict(feature_vector_valid)
+        predictions = classifier.predict(test_input)
         
         if is_neural_net:
             predictions = predictions.argmax(axis=-1)
@@ -31,8 +32,8 @@ class Classifier:
             
        
         
-        print(classifier.predict(gettfidf_vect.transform(["A FIVE STAR BOOK"])))
-        return metrics.accuracy_score(predictions, valid_y)
+        #print(classifier.predict(gettfidf_vect.transform(["A FIVE STAR BOOK"])))
+        return accuracy_score(predictions, test_target)
 
 
 """    

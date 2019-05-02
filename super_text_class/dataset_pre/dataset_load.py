@@ -4,6 +4,8 @@ Created on Apr 17, 2019
 @author: Nasir uddin
 '''
 import pandas
+import pandas as pd
+import numpy as np
 
 
 class dataset_load:
@@ -13,7 +15,7 @@ class dataset_load:
 
 # load the dataset  
  
-    def load_dataset(self): 
+    def load_txt_dataset(self): 
         data = open("../corpus.txt",encoding="utf8").read()
         labels, texts = [], []
         for i, line in enumerate(data.split("\n")):
@@ -27,4 +29,13 @@ class dataset_load:
         trainDF['label'] = labels
         return trainDF
     # load the dataset
-   
+    
+    
+    def load_cvs_dataset_preprocess(self):
+        #Set Random seed
+        np.random.seed(500)
+        
+        # Add the Data using pandas
+        Corpus = pd.read_csv("../corpus.csv",encoding='latin-1')
+        
+        return Corpus

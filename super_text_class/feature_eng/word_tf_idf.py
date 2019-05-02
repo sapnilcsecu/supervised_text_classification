@@ -3,6 +3,7 @@ Created on Apr 18, 2019
 
 @author: Nasir uddin
 '''
+from sklearn import model_selection,preprocessing
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import model_selection
 from model.Train_model_input import Train_model_input
@@ -12,15 +13,23 @@ from model.test_input import test_input
 class word_tf_idf(feature_eng):
     
      # word level tf-idf
-    def convert_feature(self,trainDF):
-         # split the dataset into training and validation datasets 
-        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
-        tfidf_vect = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=5000)
-        tfidf_vect.fit(trainDF['text'])
-        xtrain_tfidf = tfidf_vect.transform(train_x)
-        xvalid_tfidf = tfidf_vect.transform(valid_x)
-        test_input_ob=super().test_input_encode(train_y, valid_y)
-        return Train_model_input( xtrain_tfidf, xvalid_tfidf,test_input_ob.get_train_y(), test_input_ob.get_valid_y(),tfidf_vect)
+    def convert_feature(self,txt_text,txt_label):
+        Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)
+        # split the dataset into training and validation datasets 
+        
+        # label encode the target variable 
+        encoder = preprocessing.LabelEncoder()
+        Train_Y = encoder.fit_transform(Train_Y)
+        Test_Y = encoder.fit_transform(Test_Y)
+        
+        # split the dataset into training and validation datasets 
+        
+        tfidf_vect = TfidfVectorizer(max_features=5000)
+        tfidf_vect.fit(txt_text)
+        Train_X_Tfidf = tfidf_vect.transform(Train_X)
+        Test_X_Tfidf = tfidf_vect.transform(Test_X)
+      
+        return Train_model_input( Train_X_Tfidf, Test_X_Tfidf,Train_Y, Test_Y,tfidf_vect)
  
     # ngram level tf-idf 
     """

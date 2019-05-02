@@ -11,7 +11,7 @@ class Train_model_input:
     classdocs
     '''
 
-    def __init__(self, train_input, train_target, test_input, test_target,tfidf_vect):
+    def __init__(self, train_input,test_input,train_target, test_target,tfidf_vect):
         self.train_input = train_input
         self.train_target = train_target
         self.test_input = test_input
