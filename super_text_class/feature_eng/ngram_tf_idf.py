@@ -17,7 +17,10 @@ class ngram_tf_idf:
 
     def convert_feature(self,trainDF,train_x):
         train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
+        '''
         tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=5000)
+        '''
+        tfidf_vect_ngram = TfidfVectorizer(analyzer='word', ngram_range=(2,3), max_features=5000)
         tfidf_vect_ngram.fit(trainDF['text'])
         xtrain_tfidf_ngram =  tfidf_vect_ngram.transform(train_x)
         xvalid_tfidf_ngram =  tfidf_vect_ngram.transform(valid_x)

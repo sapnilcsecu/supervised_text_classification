@@ -10,12 +10,13 @@ from nltk.corpus import wordnet as wn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import model_selection, naive_bayes, svm
 from sklearn.metrics import accuracy_score
+import pickle 
 
 #Set Random seed
 np.random.seed(500)
 
 # Add the Data using pandas
-Corpus = pd.read_csv("corpus.csv",encoding='latin-1')
+Corpus = pd.read_csv("../corpus.csv",encoding='latin-1')
 
 txt_label=Corpus['label']
 txt_text=Corpus['text']
@@ -87,6 +88,14 @@ predictions_NB = Naive.predict(Test_X_Tfidf)
 # Use accuracy_score function to get the accuracy
 print("Naive Bayes Accuracy Score -> ",accuracy_score(predictions_NB, Test_Y)*100)
 
+with open('../vocabulary_file', 'wb') as vocabulary_file:  
+        pickle.dump(Tfidf_vect,vocabulary_file)
+    
+with open('../text_classifier', 'wb') as picklefile:  
+        pickle.dump(Naive,picklefile)
+
+
+print(Naive.predict(Tfidf_vect.transform(["The best soundtrack ever to anything.: I'm reading a lot of reviews saying that this is the best 'game soundtrack' and I figured that I'd write a review to disagree a bit. This in my opinino is Yasunori Mitsuda's ultimate masterpiece. The music is timeless and I'm been listening to it for years now and its beauty simply refuses to fade.The price tag on this is pretty staggering I must say, but if you are going to buy any cd for this much money, this is the only one that I feel would be worth every penny."])))
 
 # Classifier - Algorithm - SVM
 # fit the training dataset on the classifier

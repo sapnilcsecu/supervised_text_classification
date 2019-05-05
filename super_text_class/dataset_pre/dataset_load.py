@@ -31,11 +31,11 @@ class dataset_load:
     # load the dataset
     
     
-    def load_cvs_dataset_preprocess(self):
+    def load_cvs_dataset_preprocess(self,dataset_path):
         #Set Random seed
         np.random.seed(500)
         
         # Add the Data using pandas
-        Corpus = pd.read_csv("../corpus.csv",encoding='latin-1')
+        Corpus = pd.read_csv(dataset_path,encoding='latin-1')
         
         return Corpus

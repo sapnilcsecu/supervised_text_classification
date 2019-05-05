@@ -8,22 +8,38 @@ from dataset_pre.dataset_load import dataset_load
 from feature_eng.word_tf_idf import word_tf_idf
 from classifier.Classifier import Classifier
 from dataset_pre.prepare_dataset import  prepare_dataset
-
+import pickle 
 def main():
     """
    classifer=Native_Bayes();
    classifer.build_model() 
    """
+    #load the dataset
     load_data= dataset_load();
+    trainDF=load_data.load_cvs_dataset_preprocess("../corpus.csv")
+    #load the dataset
     
-    trainDF=load_data.load_cvs_dataset_preprocess()
+    #Text Preprocessing
     txt_label=trainDF['label']
     txt_text=trainDF['text']
     clear_txt=prepare_dataset().clean_cvs_txt(txt_text)
-    model_input=word_tf_idf().convert_feature(clear_txt,txt_label)
+    #Text Preprocessing
     
-    # Naive Bayes on Word Level TF IDF Vectors
-    accuracy = Classifier().train_model(naive_bayes.MultinomialNB(),model_input.get_train_input(),model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
+    #Text feature engineering 
+    model_input=word_tf_idf().convert_feature(clear_txt,txt_label)
+    #Text feature engineering 
+    
+    #  Build Text Classification Model and Evaluating the Model
+    naive=naive_bayes.MultinomialNB()
+    accuracy = Classifier().train_model(naive,model_input.get_train_input(),model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
     print ("NB, WordLevel TF-IDF: ", accuracy*100)
+    with open('../vocabulary_file', 'wb') as vocabulary_file:  
+        pickle.dump(model_input.gettfidf_vect(),vocabulary_file)
+    
+    with open('../text_classifier', 'wb') as picklefile:  
+        pickle.dump(naive,picklefile)
+    
+    
+    #  Build Text Classification Model and Evaluating the Model
 if __name__ == '__main__':
     main()
