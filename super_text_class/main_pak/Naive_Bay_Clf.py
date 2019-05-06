@@ -1,8 +1,9 @@
 '''
-Created on Apr 17, 2019
+Created on May 6, 2019
 
 @author: Nasir uddin
 '''
+
 from sklearn import naive_bayes
 from dataset_pre.dataset_load import dataset_load
 from feature_eng.word_tf_idf import word_tf_idf
@@ -72,14 +73,6 @@ def main():
     print ("NB, word_tf_idf accuracy is : ", accuracy*100)
     
     
-    '''
-    with open('../vocabulary_file', 'wb') as vocabulary_file:  
-        pickle.dump(model_input.gettfidf_vect(),vocabulary_file)
     
-    with open('../text_classifier', 'wb') as picklefile:  
-        pickle.dump(naive,picklefile)
-    
-    '''
-    #  Build Text Classification Model and Evaluating the Model
 if __name__ == '__main__':
     main()

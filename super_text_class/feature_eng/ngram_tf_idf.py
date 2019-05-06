@@ -9,21 +9,22 @@ from feature_eng.feature_eng import feature_eng
 from model.test_input import test_input
 from sklearn import model_selection
 
+#NB, ngram_tf_idf is:  76.08%
 class ngram_tf_idf:
     '''
     classdocs
     '''
 
 
-    def convert_feature(self,trainDF,train_x):
-        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(trainDF['text'], trainDF['label'])
-        '''
-        tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=5000)
-        '''
+    def convert_feature(self,txt_text,txt_label):
+        Train_X, Test_X, Train_Y, Test_Y  = model_selection.train_test_split(txt_text, txt_label)
+        
+       # tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=5000)
+        
         tfidf_vect_ngram = TfidfVectorizer(analyzer='word', ngram_range=(2,3), max_features=5000)
-        tfidf_vect_ngram.fit(trainDF['text'])
-        xtrain_tfidf_ngram =  tfidf_vect_ngram.transform(train_x)
-        xvalid_tfidf_ngram =  tfidf_vect_ngram.transform(valid_x)
-        test_input_ob=super().test_input_encode(train_y, valid_y)
-        return Train_model_input( xtrain_tfidf_ngram, xvalid_tfidf_ngram,test_input_ob.get_train_y(), test_input_ob.get_valid_y())
+        tfidf_vect_ngram.fit(txt_text)
+        Train_X_ngram =  tfidf_vect_ngram.transform(Train_X)
+        Test_X_ngram =  tfidf_vect_ngram.transform(Test_X)
+      
+        return Train_model_input(Train_X_ngram , Test_X_ngram,Train_Y, Test_Y,tfidf_vect_ngram)
         

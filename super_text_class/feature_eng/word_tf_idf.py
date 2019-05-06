@@ -10,7 +10,9 @@ from model.Train_model_input import Train_model_input
 from feature_eng.feature_eng import feature_eng
 from model.test_input import test_input
 
-class word_tf_idf(feature_eng):
+#NB, word_tf_idf is: 83%
+
+class word_tf_idf:
     
      # word level tf-idf
     def convert_feature(self,txt_text,txt_label):
