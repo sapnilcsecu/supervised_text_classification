@@ -1,8 +1,9 @@
 '''
-Created on Apr 17, 2019
+Created on May 7, 2019
 
 @author: Nasir uddin
 '''
+
 from sklearn import naive_bayes
 from dataset_pre.dataset_load import dataset_load
 from feature_eng.word_tf_idf import word_tf_idf
@@ -13,13 +14,10 @@ from classifier.Classifier import Classifier
 from dataset_pre.prepare_dataset import  prepare_dataset
 import pickle 
 def main():
-    """
-   classifer=Native_Bayes();
-   classifer.build_model() 
-   """
+    
     #load the dataset
     load_data= dataset_load();
-    trainDF=load_data.load_cvs_dataset_preprocess("../corpus.csv")
+    trainDF=load_data.load_cvs_dataset("../corpus.csv")
     #load the dataset
     
     #Text Preprocessing
@@ -40,7 +38,7 @@ def main():
     
     
     
-     #Text feature engineering 
+    #Text feature engineering 
     model_input=count_vectorizer().convert_feature(clear_txt,txt_label)
     #Text feature engineering 
     
@@ -51,7 +49,7 @@ def main():
     
     
     
-     #Text feature engineering 
+    #Text feature engineering 
     model_input=ngram_tf_idf().convert_feature(clear_txt,txt_label)
     #Text feature engineering 
     
@@ -62,7 +60,7 @@ def main():
     
     
     
-     #Text feature engineering 
+    #Text feature engineering 
     model_input=word_tf_idf().convert_feature(clear_txt,txt_label)
     #Text feature engineering 
     
@@ -72,14 +70,14 @@ def main():
     print ("NB, word_tf_idf accuracy is : ", accuracy*100)
     
     
-    '''
+  
     with open('../vocabulary_file', 'wb') as vocabulary_file:  
         pickle.dump(model_input.gettfidf_vect(),vocabulary_file)
     
     with open('../text_classifier', 'wb') as picklefile:  
         pickle.dump(naive,picklefile)
     
-    '''
+    
     #  Build Text Classification Model and Evaluating the Model
 if __name__ == '__main__':
     main()

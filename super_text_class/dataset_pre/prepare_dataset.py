@@ -3,35 +3,18 @@ Created on Apr 18, 2019
 
 @author: Nasir uddin
 '''
-from sklearn import model_selection,preprocessing
-from model.prepare_data import prepare_data
+
+
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from sklearn.preprocessing import LabelEncoder
 from collections import defaultdict
 from nltk.corpus import wordnet as wn
 
 
 class prepare_dataset:
-    """
-    def prepare_data(self,txt_text,txt_label):
-        train_x, valid_x, train_y, valid_y = model_selection.train_test_split(txt_text, txt_label)
-        # split the dataset into training and validation datasets 
-        
-        # label encode the target variable 
-        encoder = preprocessing.LabelEncoder()
-        train_y = encoder.fit_transform(train_y)
-        valid_y = encoder.fit_transform(valid_y)
-        
-        # Step - 2: Split the model into Train and Test Data set
-
-        
-        # label encode the target variable 
-        pra_object=prepare_data(train_x,valid_x,train_y,valid_y)
-        return pra_object
-    """
+    
    
     def clean_cvs_txt(self,txt_text):
         txt_text.dropna(inplace=True)
@@ -51,7 +34,7 @@ class prepare_dataset:
         tag_map['R'] = wn.ADV
         documents=[]
         
-        for index,entry in enumerate(txt_text):
+        for index, entry in enumerate(txt_text):
             # Declaring Empty List to store the words that follow the rules for this step
             Final_words = []
             # Initializing WordNetLemmatizer()

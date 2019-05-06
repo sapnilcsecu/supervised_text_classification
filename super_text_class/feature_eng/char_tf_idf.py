@@ -4,7 +4,6 @@ Created on Apr 19, 2019
 @author: Nasir uddin
 '''
 from sklearn.feature_extraction.text import TfidfVectorizer
-from feature_eng.feature_eng import feature_eng
 from model.Train_model_input import Train_model_input
 from sklearn import model_selection
 

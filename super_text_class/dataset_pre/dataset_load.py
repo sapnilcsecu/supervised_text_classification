@@ -31,7 +31,7 @@ class dataset_load:
     # load the dataset
     
     
-    def load_cvs_dataset_preprocess(self,dataset_path):
+    def load_cvs_dataset(self,dataset_path):
         #Set Random seed
         np.random.seed(500)
         

@@ -5,16 +5,14 @@ Created on Apr 18, 2019
 '''
 from sklearn import model_selection,preprocessing
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn import model_selection
 from model.Train_model_input import Train_model_input
-from feature_eng.feature_eng import feature_eng
-from model.test_input import test_input
+
 
 #NB, word_tf_idf is: 83%
 
 class word_tf_idf:
     
-     # word level tf-idf
+    # word level tf-idf
     def convert_feature(self,txt_text,txt_label):
         Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)
         # split the dataset into training and validation datasets 
