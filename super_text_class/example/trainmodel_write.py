@@ -24,6 +24,7 @@ def main():
     txt_label=trainDF['label']
     txt_text=trainDF['text']
     clear_txt=prepare_dataset().clean_cvs_txt(txt_text)
+    #clear_txt=txt_text
     #Text Preprocessing
     
     #Text feature engineering 
