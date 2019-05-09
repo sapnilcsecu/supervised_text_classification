@@ -22,6 +22,7 @@ class dataset_load:
         
         # Add the Data using pandas
         Corpus = pd.read_csv(dataset_path,encoding='latin-1',error_bad_lines=False)
+        #Corpus = pd.read_csv(dataset_path,error_bad_lines=False)
         #Corpus = pd.read_csv(dataset_path)
         
         return Corpus
