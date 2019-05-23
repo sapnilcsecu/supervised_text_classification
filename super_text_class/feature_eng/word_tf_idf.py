@@ -24,7 +24,7 @@ class word_tf_idf:
         
         # split the dataset into training and validation datasets 
         
-        tfidf_vect = TfidfVectorizer(max_features=5000)
+        tfidf_vect = TfidfVectorizer(analyzer='word',max_features=5000)
         tfidf_vect.fit(txt_text)
         Train_X_Tfidf = tfidf_vect.transform(Train_X)
         Test_X_Tfidf = tfidf_vect.transform(Test_X)

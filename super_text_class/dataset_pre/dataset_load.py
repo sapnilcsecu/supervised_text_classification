@@ -19,10 +19,7 @@ class dataset_load:
     def load_cvs_dataset(self,dataset_path):
         #Set Random seed
         np.random.seed(500)
-        
         # Add the Data using pandas
         Corpus = pd.read_csv(dataset_path,encoding='latin-1',error_bad_lines=False)
-        #Corpus = pd.read_csv(dataset_path,error_bad_lines=False)
-        #Corpus = pd.read_csv(dataset_path)
-        
+      
         return Corpus
