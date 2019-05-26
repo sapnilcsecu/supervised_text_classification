@@ -25,3 +25,23 @@
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:blue">return</span></span></span><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black"> Corpus</span></span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">this code segment found in <a href="https://github.com/sapnilcsecu/supervised_text_classification/blob/master/super_text_class/dataset_pre/dataset_load.py"><strong><span style="background-color:#ffff96">dataset_load.py</span></strong></a></span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Text Feature Engineering:</span></u></strong></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#595858">The next step is the feature engineering step. In this step, raw text data will be transformed into feature vectors and new features will be created using the existing dataset. We will implement the following different ideas in order to obtain relevant features from our dataset.</span></span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#595858">2.1 Count Vectors as features<br />
+2.2 TF-IDF Vectors as features</span></span></span></span></span></span></p>
+
+<ul>
+	<li><span style="font-size:11pt"><span style="background-color:white"><span style="color:#595858"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">Word level</span></span></span></span></span></span></li>
+	<li><span style="font-size:11pt"><span style="background-color:white"><span style="color:#595858"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">N-Gram level</span></span></span></span></span></span></li>
+	<li><span style="font-size:11pt"><span style="background-color:white"><span style="color:#595858"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">Character level</span></span></span></span></span></span></li>
+</ul>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#595858">Lets look at the implementation of these ideas in detail.</span></span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><u><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#333333">Count Vectors as features</span></span></span></u></strong></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:11.5pt"><span style="background-color:white"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#595858">Count Vector is a matrix notation of the dataset in which every row represents a document from the corpus, every column represents a term from the corpus, and every cell represents the frequency count of a particular term in a particular document.</span></span></span></span></span></span></p>
+
