@@ -31,7 +31,7 @@ def main():
     #  Build Text Classification Model and Evaluating the Model
     naive=svm.SVC()
     accuracy = Classifier().train_model(naive,model_input.get_train_input(),model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
-    print ("NB, ngram_tf_idf accuracy is : ", accuracy*100)
+    print ("Svm_clf, ngram_tf_idf accuracy is : ", accuracy*100)
    
     
 if __name__ == '__main__':

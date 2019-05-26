@@ -32,7 +32,7 @@ def main():
     #  Build Text Classification Model and Evaluating the Model
     naive=ensemble.RandomForestClassifier()
     accuracy = Classifier().train_model(naive,model_input.get_train_input(),model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
-    print ("NB, count_vectorizer accuracy is : ", accuracy*100)
+    print ("RandomForest_Clf, count_vectorizer accuracy is : ", accuracy*100)
     
     
     #Text feature engineering 
@@ -42,7 +42,7 @@ def main():
     #  Build Text Classification Model and Evaluating the Model
     naive=ensemble.RandomForestClassifier()
     accuracy = Classifier().train_model(naive,model_input.get_train_input(),model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
-    print ("NB, word_tf_idf accuracy is : ", accuracy*100)
+    print ("RandomForest_Clf, word_tf_idf accuracy is : ", accuracy*100)
    
     
 if __name__ == '__main__':

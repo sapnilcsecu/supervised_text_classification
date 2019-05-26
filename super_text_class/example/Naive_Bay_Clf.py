@@ -24,11 +24,11 @@ def main():
     # Text Preprocessing
     txt_label = trainDF['label']
     txt_text = trainDF['text']
-    clear_txt = prepare_dataset().clean_cvs_txt(txt_text)
+    #clear_txt = prepare_dataset().clean_cvs_txt(txt_text)
     # Text Preprocessing
     
     # Text feature engineering with char_tf_idf 
-    model_input = char_tf_idf().convert_feature(clear_txt, txt_label)
+    model_input = char_tf_idf().convert_feature(txt_text, txt_label)
     # Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model
@@ -37,7 +37,7 @@ def main():
     print ("NB, char_tf_idf accuracy is : ", accuracy * 100)
     
     # Text feature engineering with count_vectorizer
-    model_input = count_vectorizer().convert_feature(clear_txt, txt_label)
+    model_input = count_vectorizer().convert_feature(txt_text, txt_label)
     # Text feature engineering with count_vectorizer
     
     #  Build Text Classification Model and Evaluating the Model
@@ -47,7 +47,7 @@ def main():
     #  Build Text Classification Model and Evaluating the Model
     
     # Text feature engineering with ngram_tf_idf
-    model_input = ngram_tf_idf().convert_feature(clear_txt, txt_label)
+    model_input = ngram_tf_idf().convert_feature(txt_text, txt_label)
     # Text feature engineering with ngram_tf_idf
     
     #  Build Text Classification Model and Evaluating the Model
@@ -57,7 +57,7 @@ def main():
     #  Build Text Classification Model and Evaluating the Model
     
     # Text feature engineering with word_tf_idf
-    model_input = word_tf_idf().convert_feature(clear_txt, txt_label)
+    model_input = word_tf_idf().convert_feature(txt_text, txt_label)
     # Text feature engineering with word_tf_idf
     
     #  Build Text Classification Model and Evaluating the Model

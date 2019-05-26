@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import defaultdict
 from nltk.corpus import wordnet as wn
-from bs4 import BeautifulSoup 
+#from bs4 import BeautifulSoup 
 import re
 import string
 
@@ -54,7 +54,7 @@ class prepare_dataset:
         txt_text =documents    
         return txt_text
     
-    
+    '''
         def clean_txt_Lemmatized(self,raw_review):
             #remove html using BeautifulSoup
             review_text = BeautifulSoup(raw_review,"html.parser").get_text()
@@ -68,7 +68,7 @@ class prepare_dataset:
             meaningful_words = [w for w in words if w not in stop]
             #return a string with only the words that are important
             return(" ".join(meaningful_words))
-        
+        '''
         
         
       
