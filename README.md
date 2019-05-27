@@ -83,3 +83,39 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 <p style="margin-left:0in; margin-right:0in; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:12pt"><span style="background-color:white"><strong><span style="font-size:11.5pt"><span style="color:#333333">a. Word Level TF-IDF :</span></span></strong><span style="font-size:11.5pt"><span style="color:#595858">&nbsp;Matrix representing tf-idf scores of every term in different documents</span></span><br />
 <strong><span style="font-size:11.5pt"><span style="color:#333333">b. N-gram Level TF-IDF :</span></span></strong><span style="font-size:11.5pt"><span style="color:#595858">&nbsp;N-grams are the combination of N terms together. This Matrix representing tf-idf scores of N-grams</span></span><br />
 <strong><span style="font-size:11.5pt"><span style="color:#333333">c. Character Level TF-IDF :</span></span></strong><span style="font-size:11.5pt"><span style="color:#595858">&nbsp;Matrix representing tf-idf scores of character level n-grams in the corpus</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><u><span style="font-size:12.0pt"><span style="color:#333333">Word Level TF-IDF :</span></span></u></strong><strong><u>&nbsp;</u></strong></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in">&nbsp;</p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:silver"># split the <u>dataset</u> into training and validation <u>datasets</u> </span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:silver"># label encode the target variable </span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encoder = preprocessing.LabelEncoder()</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Train_Y = encoder.fit_transform(Train_Y)</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Test_Y = encoder.fit_transform(Test_Y)</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:silver"># split the <u>dataset</u> into training and validation <u>datasets</u> </span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tfidf_vect = TfidfVectorizer(analyzer=</span></span></span><em><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:#00aa00">&#39;word&#39;</span></span></span></em><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">,max_features=</span></span></span><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:maroon">5000</span></span></span><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">)</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tfidf_vect.fit(txt_text)</span></span></span></span></span></p>
+
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Train_X_Tfidf = tfidf_vect.transform(Train_X)</span></span></span></span></span></p>
+
+<h3 style="margin-left:0in; margin-right:0in"><span style="font-size:13.5pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Test_X_Tfidf = tfidf_vect.transform(Test_X)</span></span></span></span></span></span></h3>
+
+<h3 style="margin-left:0in; margin-right:0in"><span style="font-size:13.5pt"><span style="background-color:white"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:10.0pt"><span style="font-family:Consolas"><span style="color:black">This code segment fond in </span></span></span><span style="font-size:10.0pt"><span style="background-color:#ffff96"><span style="font-family:Consolas"><span style="color:black">word_tf_idf.py</span></span></span></span></span></span></span></h3>
+
+
