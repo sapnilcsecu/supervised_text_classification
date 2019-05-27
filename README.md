@@ -94,25 +94,13 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp; Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:silver"># split the <u>dataset</u> into training and validation <u>datasets</u> </span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># label encode the target variable </span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encoder = preprocessing.LabelEncoder()</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">encoder = preprocessing.LabelEncoder()</span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Train_Y = encoder.fit_transform(Train_Y)</span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Test_Y = encoder.fit_transform(Test_Y)</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:silver"># split the <u>dataset</u> into training and validation <u>datasets</u> </span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tfidf_vect = TfidfVectorizer(analyzer=</span><em><span style="color:#00aa00">&#39;word&#39;</span></em><span style="color:black">,max_features=</span><span style="color:maroon">5000</span><span style="color:black">)</span></span></span></p>
 
@@ -175,21 +163,19 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:blue">&nbsp; &nbsp; &nbsp; def</span><span style="color:black"> <strong>train_model</strong>(<em>self</em>,classifier, train_input,test_input, train_target, test_target, is_neural_net=</span><span style="color:blue">False</span><span style="color:black">):</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:silver"># fit the training <u>dataset</u> on the classifie</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;</span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; classifier.fit(train_input, train_target)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># predict the labels on validation <u>dataset</u></span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;predictions = classifier.predict(test_input)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; predictions = classifier.predict(test_input)</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:blue">if</span><span style="color:black"> is_neural_net:</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:blue">if</span><span style="color:black"> is_neural_net:</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; predictions = predictions.argmax(axis=-</span><span style="color:maroon">1</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; predictions = predictions.argmax(axis=-</span><span style="color:maroon">1</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver">#print(classifier.predict(gettfidf_vect.transform([&quot;A FIVE STAR BOOK&quot;])))</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:blue">return</span><span style="color:black"> accuracy_score(predictions, test_target)</span></span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:blue">return</span><span style="color:black"> accuracy_score(predictions, test_target)</span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white"><u><span style="color:#333333">Naive Bayes:</span></u></span></span></span></p>
 
@@ -197,17 +183,9 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white"><span style="color:#595858">Naive Bayes is a classification technique based on Bayes&rsquo; Theorem with an assumption of independence among predictors. A Naive Bayes classifier assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in">&nbsp;</p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:silver">&nbsp; &nbsp; &nbsp; &nbsp;# Text feature engineering with char_tf_idf </span></span></span></p>
-
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;model_input = char_tf_idf().convert_feature(txt_text, txt_label)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># Text feature engineering</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;naive = naive_bayes.MultinomialNB()</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;</span></span><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">naive = naive_bayes.MultinomialNB()</span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(),&nbsp;</span></span></span></p>
 
@@ -217,65 +195,35 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, char_tf_idf accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;</span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># Text feature engineering with count_vectorizer</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;model_input = count_vectorizer().convert_feature(txt_text, txt_label)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; model_input = count_vectorizer().convert_feature(txt_text, txt_label)</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;naive = naive_bayes.MultinomialNB()</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># Text feature engineering with count_vectorizer</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(),&nbsp;model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, count_vectorizer accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;model_input = ngram_tf_idf().convert_feature(txt_text, txt_label)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp;naive = naive_bayes.MultinomialNB()</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; </span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp;accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; &nbsp;naive = naive_bayes.MultinomialNB()</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, count_vectorizer accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; <span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, ngram_tf_idf accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; model_input = word_tf_idf().convert_feature(txt_text, txt_label)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:silver"># Text feature engineering with ngram_tf_idf</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp;&nbsp;naive = naive_bayes.MultinomialNB()</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; model_input = ngram_tf_idf().convert_feature(txt_text, txt_label)</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp; &nbsp; &nbsp; accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver"># Text feature engineering with ngram_tf_idf</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; <span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, word_tf_idf accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp; naive = naive_bayes.MultinomialNB()</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp; accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, ngram_tf_idf accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; <span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; <span style="color:silver"># Text feature engineering with word_tf_idf</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp; model_input = word_tf_idf().convert_feature(txt_text, txt_label)</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; <span style="color:silver"># Text feature engineering with word_tf_idf</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; </span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; <span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp; naive = naive_bayes.MultinomialNB()</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">&nbsp;&nbsp;&nbsp; accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif">&nbsp;&nbsp;&nbsp; <span style="color:blue">print</span><span style="color:black"> (</span><em><span style="color:#00aa00">&quot;NB, word_tf_idf accuracy is : &quot;</span></em><span style="color:black">, accuracy * </span><span style="color:maroon">100</span><span style="color:black">)</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white">&nbsp;&nbsp;&nbsp; <span style="color:silver">#&nbsp; Build Text Classification Model and Evaluating the Model</span></span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white">&nbsp;&nbsp;</span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">this code segment found in <strong><span style="background-color:#ffff96">Naive_Bay_Clf.py</span></strong></span></span></span></p>
 
