@@ -229,19 +229,13 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
-<p style="margin-left:0in; margin-right:0in">&nbsp;</p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#95a5a6">NB, char_tf_idf accuracy is :&nbsp; 81.28</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in">&nbsp;</p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#95a5a6">NB, count_vectorizer accuracy is :&nbsp; 82.96</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in">&nbsp;</p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#95a5a6">NB, ngram_tf_idf accuracy is :&nbsp; 81.92</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">NB, char_tf_idf accuracy is :&nbsp; 81.28</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">NB, count_vectorizer accuracy is :&nbsp; 82.96</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">NB, ngram_tf_idf accuracy is :&nbsp; 81.92</span></span></span></p>
-
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white"><span style="color:black">NB, word_tf_idf accuracy is :&nbsp; 85.96000000000001</span></span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#95a5a6">NB, word_tf_idf accuracy is :&nbsp; 85.96000000000001</span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
@@ -297,13 +291,13 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">Linear_Clf, char_tf_idf accuracy is :&nbsp; 84.36</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">Linear_Clf, char_tf_idf accuracy is :&nbsp; 84.36</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">Linear_Clf, count_vectorizer accuracy is :&nbsp; 85.92</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">Linear_Clf, count_vectorizer accuracy is :&nbsp; 85.92</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">Linear_Clf, ngram_tf_idf accuracy is :&nbsp; 82.64</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">Linear_Clf, ngram_tf_idf accuracy is :&nbsp; 82.64</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">Linear_Clf, word_tf_idf accuracy is :&nbsp; 87.4</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">Linear_Clf, word_tf_idf accuracy is :&nbsp; 87.4</span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
@@ -321,7 +315,7 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="background-color:white"><span style="color:black">Svm_clf, ngram_tf_idf accuracy is :&nbsp; 51.76</span></span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">Svm_clf, ngram_tf_idf accuracy is :&nbsp; 51.76</span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
@@ -361,8 +355,8 @@ IDF(t) = log_e(Total number of documents / Number of documents with term t in it
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">RandomForest_Clf, count_vectorizer accuracy is :&nbsp; 77.84</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">RandomForest_Clf, count_vectorizer accuracy is :&nbsp; 77.84</span></span></span></span></p>
 
-<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black">RandomForest_Clf, word_tf_idf accuracy is :&nbsp; 78.52</span></span></span></p>
+<p style="margin-left:0in; margin-right:0in"><span style="font-size:12px"><span style="font-family:Times New Roman,Times,serif"><span style="color:black"><span style="background-color:#999999">RandomForest_Clf, word_tf_idf accuracy is :&nbsp; 78.52</span></span></span></span></p>
 
 <p style="margin-left:0in; margin-right:0in">&nbsp;</p>
