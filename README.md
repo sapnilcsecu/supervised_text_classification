@@ -1,3 +1,23 @@
+<p style="text-align:justify"><span style="color:#000000"><strong><span style="font-family:proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif"><span style="font-size:medium"><u>Text classification</u></span></span></strong></span><span style="color:#565867"><span style="font-family:proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif"><span style="font-size:medium">&nbsp;</span></span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">Text classification&nbsp;models are used to categorize text into organized groups. Text is analyzed by a model and then the appropriate tags are applied based on the content. Machine learning models that can automatically apply tags for classification are known as&nbsp;classifiers.</span></span></span></p>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">Classifiers can&#39;t just work automatically, they need to be trained to be able to make specific predictions for texts. Training a classifier is done by:</span></span></span></p>
+
+<ul>
+	<li>
+	<p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">defining a set of tags that the model will work with</span></span></span></p>
+	</li>
+	<li>
+	<p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">making associations between pieces of text and the corresponding tag or tags</span></span></span></p>
+	</li>
+</ul>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">Once enough texts have been tagged, the classifier can&nbsp;learn from those associations&nbsp;and begin to make predictions with new texts.</span></span></span></p>
+
+
+
+
 <p><strong>load dataset:</strong></p>
 
 <p>To prepare the dataset, load the downloaded data into a pandas dataframe&nbsp;containing two columns &ndash; text and label.</p>
