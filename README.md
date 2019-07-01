@@ -15,6 +15,19 @@
 
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">Once enough texts have been tagged, the classifier can&nbsp;learn from those associations&nbsp;and begin to make predictions with new texts.</span></span></span></p>
 
+<p style="text-align:justify"><span style="color:null"><span style="font-size:16px"><span style="font-family:Times New Roman,Times,serif"><u><strong>Supervised Learning for Text Classification.</strong></u></span></span></span></p>
+
+<p><strong>PART-I</strong>&nbsp;:&nbsp;<strong>Training</strong><br />
+1) During training, a feature extractor is used to transform each input value to a feature set.<br />
+2) These feature sets, which capture the basic information about each input that should be used to categorize it.<br />
+3) Pairs of feature sets and labels are fed into the machine learning algorithm to produce a model.</p>
+
+<p><strong>PART-II : Prediction</strong><br />
+1) During prediction, the same feature extractor is used to transform unobserved inputs to feature sets. These feature sets are then fed into the model, which produces predicted labels.</p>
+
+<p><img alt="New_supervised" src="https://blog.thedigitalgroup.com/assets/uploads/New_supervised.jpg" style="height:245px; width:571px" /></p>
+
+<p>&nbsp;</p>
 
 
 
