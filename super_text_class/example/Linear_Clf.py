@@ -5,21 +5,20 @@ Created on May 6, 2019
 '''
 
 from sklearn import linear_model
-from dataset_pre.dataset_load import dataset_load
+from dataset_pre.dataset_load import load_cvs_dataset
 from feature_eng.word_tf_idf import word_tf_idf
 from feature_eng.ngram_tf_idf import ngram_tf_idf
 from feature_eng.count_vectorizer import count_vectorizer
 from feature_eng.char_tf_idf import char_tf_idf
-from classifier.Classifier import Classifier
-from dataset_pre.prepare_dataset import  prepare_dataset
+from classifier.Classifier import train_model
 
 
 
 def main():
    
     # load the dataset
-    load_data = dataset_load();
-    trainDF = load_data.load_cvs_dataset("../corpus.csv")
+   
+    trainDF = load_cvs_dataset("../corpus.csv")
     # load the dataset
     
     # Text Preprocessing
@@ -29,39 +28,39 @@ def main():
     # Text Preprocessing
     
     # Text feature engineering 
-    model_input = char_tf_idf().convert_feature(txt_text, txt_label)
+    model_input = char_tf_idf(txt_text, txt_label)
     # Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model
     naive = linear_model.LogisticRegression()
-    accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
+    accuracy = train_model(naive, model_input[0], model_input[1], model_input[2], model_input[3])
     print ("Linear_Clf, char_tf_idf accuracy is : ", accuracy * 100)
     
     # Text feature engineering 
-    model_input = count_vectorizer().convert_feature(txt_text, txt_label)
+    model_input = count_vectorizer(txt_text, txt_label)
     # Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model
     naive = linear_model.LogisticRegression()
-    accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
+    accuracy = train_model(naive, model_input[0], model_input[1], model_input[2], model_input[3])
     print ("Linear_Clf, count_vectorizer accuracy is : ", accuracy * 100)
     
     # Text feature engineering 
-    model_input = ngram_tf_idf().convert_feature(txt_text, txt_label)
+    model_input = ngram_tf_idf(txt_text, txt_label)
     # Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model
     naive = linear_model.LogisticRegression()
-    accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
+    accuracy = train_model(naive, model_input[0], model_input[1], model_input[2], model_input[3])
     print ("Linear_Clf, ngram_tf_idf accuracy is : ", accuracy * 100)
     
     # Text feature engineering 
-    model_input = word_tf_idf().convert_feature(txt_text, txt_label)
+    model_input = word_tf_idf(txt_text, txt_label)
     # Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model
     naive = linear_model.LogisticRegression()
-    accuracy = Classifier().train_model(naive, model_input.get_train_input(), model_input.get_test_input(), model_input.get_train_target(), model_input.get_test_target())
+    accuracy = train_model(naive, model_input[0], model_input[1], model_input[2], model_input[3])
     print ("Linear_Clf, word_tf_idf accuracy is : ", accuracy * 100)
     
     
