@@ -6,11 +6,9 @@ Created on May 6, 2019
 from keras import layers, models, optimizers
 
 
-
-
 def create_model_architecture(input_size):
     # create input layer 
-    input_layer = layers.Input((input_size, ), sparse=True)
+    input_layer = layers.Input((input_size,), sparse=True)
     
     # create hidden layer
     hidden_layer = layers.Dense(100, activation="relu")(input_layer)
@@ -18,6 +16,6 @@ def create_model_architecture(input_size):
     # create output layer
     output_layer = layers.Dense(1, activation="sigmoid")(hidden_layer)
     
-    classifier = models.Model(inputs = input_layer, outputs = output_layer)
+    classifier = models.Model(inputs=input_layer, outputs=output_layer)
     classifier.compile(optimizer=optimizers.Adam(), loss='binary_crossentropy')
     return classifier 

@@ -4,7 +4,6 @@ Created on Apr 18, 2019
 @author: Nasir uddin
 '''
 
-
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 from nltk.corpus import stopwords
@@ -22,7 +21,7 @@ def clean_cvs_txt(txt_text):
     txt_text = [entry.lower() for entry in txt_text]
     
     # Step - 1c : Tokenization : In this each entry in the corpus will be broken into set of words
-    txt_text= [word_tokenize(entry) for entry in txt_text]
+    txt_text = [word_tokenize(entry) for entry in txt_text]
     
     # Step - 1d : Remove Stop words, Non-Numeric and perfom Word Stemming/Lemmenting.
     
@@ -31,7 +30,7 @@ def clean_cvs_txt(txt_text):
     tag_map['J'] = wn.ADJ
     tag_map['V'] = wn.VERB
     tag_map['R'] = wn.ADV
-    documents=[]
+    documents = []
     
     for index, entry in enumerate(txt_text):
         # Declaring Empty List to store the words that follow the rules for this step
@@ -42,15 +41,12 @@ def clean_cvs_txt(txt_text):
         for word, tag in pos_tag(entry):
             # Below condition is to check for Stop words and consider only alphabets
             if word not in stopwords.words('english') and word.isalpha():
-                word_Final = word_Lemmatized.lemmatize(word,tag_map[tag[0]])
+                word_Final = word_Lemmatized.lemmatize(word, tag_map[tag[0]])
                 Final_words.append(word_Final)
         # The final processed set of words for each iteration will be stored in 'text_final'
         documents.append(str(Final_words))
         
-    txt_text =documents    
+    txt_text = documents    
     return txt_text
-    
-   
-        
         
       
