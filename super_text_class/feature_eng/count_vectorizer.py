@@ -11,7 +11,8 @@ from sklearn import model_selection
 
 
 def count_vectorizer(txt_text, txt_label):
-    Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label)
+    Train_X, Test_X, Train_Y, Test_Y = model_selection.train_test_split(txt_text, txt_label,test_size=1)
+    print("test size id ",len(Test_X))
     count_vect = CountVectorizer(analyzer='word')
     count_vect.fit(txt_text)
     

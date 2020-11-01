@@ -1,0 +1,6 @@
+payload,label
+nasir,norm
+forhad,norm
+jakir,norm
+"<button type=""button"">Click Me!</button>",anom
+"<script ""a='>'"" id=xss src=""http://ha.ckers.org/xss.js""></script>",anom

@@ -7,6 +7,7 @@ Created on May 7, 2019
 from sklearn import naive_bayes
 from dataset_pre.dataset_load import load_cvs_dataset
 from feature_eng.word_tf_idf import word_tf_idf
+from feature_eng.count_vectorizer import count_vectorizer
 from classifier.Classifier import train_model
 import pickle 
 
@@ -14,16 +15,16 @@ def main():
     
     #load the dataset
    
-    trainDF=load_cvs_dataset("../corpus.csv")
+    trainDF=load_cvs_dataset("../normdatapayload.csv")
     #load the dataset
     
     #Text Preprocessing
     
     txt_label=trainDF['label']
-    txt_text=trainDF['text']
+    txt_text=trainDF['payload']
     
     #Text feature engineering 
-    model_input=word_tf_idf(txt_text,txt_label)
+    model_input = count_vectorizer(txt_text, txt_label)
     #Text feature engineering 
     
     #  Build Text Classification Model and Evaluating the Model

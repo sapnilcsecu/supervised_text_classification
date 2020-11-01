@@ -16,7 +16,7 @@ def main():
        count_vect= pickle.load(vocabulary_file)
     with open('../text_classifier', 'rb') as training_model:  
         model = pickle.load(training_model)
-    X= ["Did you hear about the new \Divorce Barbie\"? It comes with all of Ken's stuff!"]
+    X= ['<script>alter(01914669905)</script>']
     print(model.predict(count_vect.transform(X)))
 
 

